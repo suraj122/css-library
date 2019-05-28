@@ -1,0 +1,133 @@
+// ==========================
+// Variables
+// ==========================
+$columns: 12;
+$gutter-width: 60px;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $gutter-width / 2;
+}
+.container-fluid {
+  margin: 0 auto;
+  padding: 0 $gutter-width / 2;
+}
+
+[class*="col-"] {
+  display: grid;
+  grid-gap: $gutter-width / 2;
+}
+
+@for $i from $columns through 1 {
+  .row-#{ $i } {
+    grid-template-rows: $i * 1fr;
+  }
+}
+@for $i from $columns through 1 {
+  .row-span-#{ $i } {
+    grid-row: span $i;
+  }
+}
+
+@for $i from $columns through 1 {
+  .col-xs-#{ $i } {
+    grid-template-columns: repeat($i, 1fr);
+  }
+  @for $i from $columns through 1 {
+    .col-xs-span-#{ $i } {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media all and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+  @for $i from $columns through 1 {
+    .col-sm-#{ $i } {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+  @for $i from $columns through 1 {
+    .col-sm-span-#{ $i } {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media all and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+  @for $i from $columns through 1 {
+    .col-md-#{ $i } {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+  @for $i from $columns through 1 {
+    .col-md-span-#{ $i } {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media all and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+  @for $i from $columns through 1 {
+    .col-lg-#{ $i } {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+  @for $i from $columns through 1 {
+    .col-lg-span-#{ $i } {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+  @for $i from $columns through 1 {
+    .col-xl-#{ $i } {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+  @for $i from $columns through 1 {
+    .col-xl-span-#{ $i } {
+      grid-column: span $i;
+    }
+  }
+}
+@media all and (min-width: 1400px) {
+  .container {
+    max-width: 1370px;
+  }
+  @for $i from $columns through 1 {
+    .col-xl-#{ $i } {
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .container {
+    max-width: 1570px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container {
+    max-width: 1870px;
+  }
+  .ls-container {
+    max-width: 1900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
